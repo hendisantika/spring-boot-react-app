@@ -73,8 +73,33 @@
                 </configuration>
             </plugin>
             <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>frontend/build</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
+                <version>${frontend-maven-plugin.version}</version>
+                <configuration>
+                    <workingDirectory>frontend</workingDirectory>
+                </configuration>
                 <executions>
                     <execution>
                         <id>install node</id>
@@ -82,7 +107,6 @@
                             <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
-                            <skip>true</skip>
                             <nodeVersion>${node.version}</nodeVersion>
                             <yarnVersion>${yarn.version}</yarnVersion>
                         </configuration>
@@ -92,17 +116,14 @@
                         <goals>
                             <goal>yarn</goal>
                         </goals>
-                        <phase>none</phase>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
+                        <phase>generate-resources</phase>
                     </execution>
                     <execution>
                         <id>yarn test</id>
                         <goals>
                             <goal>yarn</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>test</phase>
                         <configuration>
                             <arguments>test</arguments>
                             <environmentVariables>
@@ -117,7 +138,7 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <skip>true</skip>
+                            <arguments>build</arguments>
                         </configuration>
                     </execution>
                 </executions>
