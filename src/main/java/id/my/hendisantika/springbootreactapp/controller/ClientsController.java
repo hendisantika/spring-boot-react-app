@@ -3,11 +3,16 @@ package id.my.hendisantika.springbootreactapp.controller;
 import id.my.hendisantika.springbootreactapp.model.Client;
 import id.my.hendisantika.springbootreactapp.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 /**
@@ -35,5 +40,11 @@ public class ClientsController {
     @GetMapping("/{id}")
     public Client getClient(@PathVariable Long id) {
         return clientRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+    @PostMapping
+    public ResponseEntity createClient(@RequestBody Client client) throws URISyntaxException {
+        Client savedClient = clientRepository.save(client);
+        return ResponseEntity.created(new URI("/clients/" + savedClient.getId())).body(savedClient);
     }
 }
