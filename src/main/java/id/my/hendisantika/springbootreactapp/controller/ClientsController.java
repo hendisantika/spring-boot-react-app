@@ -4,6 +4,7 @@ import id.my.hendisantika.springbootreactapp.model.Client;
 import id.my.hendisantika.springbootreactapp.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,5 +58,11 @@ public class ClientsController {
         currentClient = clientRepository.save(client);
 
         return ResponseEntity.ok(currentClient);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteClient(@PathVariable Long id) {
+        clientRepository.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }
