@@ -1,9 +1,13 @@
 package id.my.hendisantika.springbootreactapp.controller;
 
+import id.my.hendisantika.springbootreactapp.model.Client;
 import id.my.hendisantika.springbootreactapp.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,5 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientsController {
 
     private final ClientRepository clientRepository;
+
+    @GetMapping
+    public List<Client> getClients() {
+        return clientRepository.findAll();
+    }
 
 }
