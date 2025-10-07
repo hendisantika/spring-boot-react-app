@@ -12,6 +12,7 @@ practices. The application provides a RESTful API for managing client data with 
 
 - [Quick Start Guide](RUNNING.md) - How to run the application
 - [Docker Guide](DOCKER.md) - Docker and Docker Compose setup
+- [CI/CD Summary](CI_CD_SUMMARY.md) - Continuous Integration and Deployment
 - [Architecture](ARCHITECTURE.md) - Technical architecture details
 - [Project Summary](PROJECT_SUMMARY.md) - Complete project overview
 
