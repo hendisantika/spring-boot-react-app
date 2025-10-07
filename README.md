@@ -5,15 +5,22 @@ management.
 
 ## Overview
 
-This project showcases the integration of Spring Boot 3.3.0 with a React frontend, using modern Java features and best
+This project showcases the integration of Spring Boot 3.5.6 with a React frontend, using modern Java features and best
 practices. The application provides a RESTful API for managing client data with a responsive React user interface.
+
+**📖 Quick Reference:**
+
+- [Quick Start Guide](RUNNING.md) - How to run the application
+- [Docker Guide](DOCKER.md) - Docker and Docker Compose setup
+- [Architecture](ARCHITECTURE.md) - Technical architecture details
+- [Project Summary](PROJECT_SUMMARY.md) - Complete project overview
 
 ## Tech Stack
 
 ### Backend
 
 - **Java 21** - Latest LTS version with modern language features
-- **Spring Boot 3.3.0** - Framework for building production-ready applications
+- **Spring Boot 3.5.6** - Framework for building production-ready applications
 - **Spring Data JPA** - Data persistence and ORM
 - **H2 Database** - In-memory database for development
 - **Lombok** - Reduces boilerplate code
@@ -167,6 +174,8 @@ yarn test
 
 ## Deployment
 
+### Traditional Deployment
+
 Build production-ready JAR:
 
 ```bash
@@ -178,6 +187,30 @@ Run the JAR:
 ```bash
 java -jar target/spring-boot-react-app-0.0.1-SNAPSHOT.jar
 ```
+
+### Docker Deployment
+
+**Quick Start with H2 Database:**
+
+```bash
+# Build JAR
+./mvnw clean package -DskipTests
+
+# Run with Docker Compose
+docker-compose -f docker-compose-simple.yml up -d
+```
+
+**Production with PostgreSQL:**
+
+```bash
+# Build JAR
+./mvnw clean package -DskipTests
+
+# Run with Docker Compose
+docker-compose up -d
+```
+
+See [DOCKER.md](DOCKER.md) for complete Docker documentation.
 
 ## Client Model
 
