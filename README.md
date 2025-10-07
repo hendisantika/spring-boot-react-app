@@ -212,6 +212,12 @@ docker-compose up -d
 
 See [DOCKER.md](DOCKER.md) for complete Docker documentation.
 
+## Image Screenshots
+
+Client List:
+
+![Client List](img/Client-Management-Spring-Boot-React-App.png)
+
 ## Client Model
 
 The Client entity contains:
