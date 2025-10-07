@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  # Spring Boot + React Application (H2 Database)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.simple
+    container_name: spring-boot-react-app
+    image: spring-boot-react-app:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
