@@ -15,7 +15,7 @@
     <description>spring-boot-react-app</description>
     <properties>
         <java.version>21</java.version>
-        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-resources-plugin.version>3.4.0</maven-resources-plugin.version>
         <frontend-maven-plugin.version>1.15.4</frontend-maven-plugin.version>
         <node.version>v22.2.0</node.version>
         <yarn.version>v1.22.22</yarn.version>
