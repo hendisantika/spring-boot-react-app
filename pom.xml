@@ -16,7 +16,7 @@
     <properties>
         <java.version>21</java.version>
         <maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
-        <frontend-maven-plugin.version>2.0.0</frontend-maven-plugin.version>
+        <frontend-maven-plugin.version>2.0.1</frontend-maven-plugin.version>
         <node.version>v22.2.0</node.version>
         <yarn.version>v1.22.22</yarn.version>
         <javafaker.version>1.0.2</javafaker.version>
